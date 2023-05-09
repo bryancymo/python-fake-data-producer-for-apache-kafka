@@ -1,6 +1,7 @@
 from faker.providers import BaseProvider
 import random
 import time
+import uuid
 
 
 StockNames = [
@@ -40,12 +41,13 @@ class StockProvider(BaseProvider):
     def produce_msg(self):
         stockname = self.stock_name()
         ts = time.time()
+        timestamp = int(ts * 1000)
         if random.random() > ShuffleProb:
             self.reshuffle_probs(stockname)
         message = {
             "stock_name": stockname,
             "stock_value": self.stock_value(stockname),
-            "timestamp": int(ts * 1000),
+            "timestamp": timestamp,
         }
-        key = {"user": "all_users"}
+        key = {"stock_name": stockname, "timestamp": timestamp}
         return message, key

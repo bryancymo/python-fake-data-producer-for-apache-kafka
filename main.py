@@ -120,7 +120,7 @@ def produce_msgs(
         time.sleep(sleep_time)
 
         # Force flushing of all messages
-        if (i % 100) == 0:
+        if (i % 10000) == 0:
             producer.flush()
         i = i + 1
     producer.flush()
