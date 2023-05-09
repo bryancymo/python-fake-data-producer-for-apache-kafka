@@ -32,9 +32,9 @@ class PizzaProvider(BaseProvider):
             "🧄 garlic",
             "🐟 tuna",
             "🧅 onion",
-            "🍍 pineapple",
-            "🍓 strawberry",
-            "🍌 banana",
+            # "🍍 pineapple",
+            # "🍓 strawberry",
+            # "🍌 banana",
         ]
         return random.choice(available_pizza_toppings)
 
